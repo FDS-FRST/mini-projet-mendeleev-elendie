@@ -28,6 +28,8 @@ public class Personnage {
         {
             cible.vie = 0;
         }
+
+
     }
 
 }
