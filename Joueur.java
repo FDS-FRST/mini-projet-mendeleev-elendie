@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Joueur {
 
     //Attributs
@@ -10,6 +12,7 @@ public class Joueur {
     }
 
     // Méthodes
+    // Est-ce qu`on ne pourrait pas utiliser une boucle ?
     public Personnage choisirPersonnageVivant() {
         if (equipe[0].estVivant()) {
             return equipe[0];
@@ -20,6 +23,13 @@ public class Joueur {
         } else {
             return null; // aucun personnage vivant
         }
+
+
+
+    }
+
+    public String getNom() {
+        return this.nom;
     }
 
     public boolean aEncoreDesPersonnagesVivants() {
@@ -34,10 +44,46 @@ public class Joueur {
     }
 
 
+
+
+
+
     public void afficherEquipe() {
         System.out.println("Équipe de " + nom + " :");
         equipe[0].afficherEtat();
         equipe[1].afficherEtat();
         equipe[2].afficherEtat();
     }
+
+
+    public void affichageDesPersonnages()
+    {
+        System.out.println(this.nom +" voici la liste de vos personnages vivants :"  );
+        for (int i =0;i<equipe.length;i++)
+        {
+            if(equipe[i].estVivant())
+            {
+                System.out.println((i+1)+" - "+ equipe[i].getNom()); //Afficher uniquement les noms des personnages vivants
+
+            }
+
+        }
+
+    }
+
+
+
+    //Cette methode permet d`obtenir un personnage dans l`equipe du joueur en utilisant
+    // le numero entre par le joueur
+
+    public Personnage obtenirPersonnage(int num)
+    {
+        if(num>equipe.length){
+            System.out.println("Mauvais choix");
+        }
+        return equipe[num-1];
+    }
+
+
+
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Personnage {
     private String nom;
     private int vie;
@@ -15,10 +17,17 @@ public class Personnage {
         return vie > 0;
 
     }
-
+    public String getNom() {
+        return this.nom;
+    }
     public void afficherEtat()
     {
-        System.out.println("Nom:" + this.nom + "  Vie restante: " + this.vie );
+        System.out.println(this.nom + " - " + this.vie+ " HP" );
+    }
+
+
+    public int getAttaque() {
+        return attaque;
     }
 
     public void attaquer(Personnage cible)
@@ -28,6 +37,8 @@ public class Personnage {
         {
             cible.vie = 0;
         }
+
+
 
 
     }
