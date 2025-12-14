@@ -59,9 +59,9 @@ public class Main {
         Personnage p2 = new Personnage(nom2, 100, 20);
         Personnage p3 = new Personnage(nom3, 100, 20);
 
-        Personnage p4 = new Personnage(nom4, 20, 20);
-        Personnage p5 = new Personnage(nom5, 20, 20);
-        Personnage p6 = new Personnage(nom6, 20, 20);
+        Personnage p4 = new Personnage(nom4, 100, 20);
+        Personnage p5 = new Personnage(nom5, 100, 20);
+        Personnage p6 = new Personnage(nom6, 100, 20);
 
 
 
