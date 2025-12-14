@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package models;
 
 public class Personnage {
     private String nom;
@@ -25,7 +25,6 @@ public class Personnage {
         System.out.println(this.nom + " - " + this.vie+ " HP" );
     }
 
-
     public int getAttaque() {
         return attaque;
     }
@@ -37,9 +36,6 @@ public class Personnage {
         {
             cible.vie = 0;
         }
-
-
-
 
     }
 

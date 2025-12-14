@@ -1,3 +1,6 @@
+import models.Joueur;
+import models.Personnage;
+
 import java.util.Scanner;
 
 public class Main {
@@ -5,12 +8,9 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Bienvenue dans le jeu de combat !");
-
-
+        System.out.println("=== Bienvenue dans le jeu de combat ! === ");
 
         //  Création des joueurs
-
 
         System.out.print("\nNom du joueur 1 : ");
         String nomJoueur1 = input.nextLine();
@@ -18,9 +18,7 @@ public class Main {
         System.out.print("Nom du joueur 2 : ");
         String nomJoueur2 = input.nextLine();
 
-
-
-        //  Création des personnages du Joueur 1
+        //  Création des personnages du models.Joueur 1
 
 
         System.out.println("\n " + nomJoueur1 +" cree ton equipe :");
@@ -36,7 +34,7 @@ public class Main {
 
 
 
-        //  Création des personnages du Joueur 2
+        //  Création des personnages du models.Joueur 2
 
 
         System.out.println("\n " + nomJoueur2 +" cree ton equipe :");
@@ -63,11 +61,8 @@ public class Main {
         Personnage p5 = new Personnage(nom5, 100, 20);
         Personnage p6 = new Personnage(nom6, 100, 20);
 
-
-
         Joueur joueur1 = new Joueur(nomJoueur1, new Personnage[]{p1, p2, p3});
         Joueur joueur2 = new Joueur(nomJoueur2, new Personnage[]{p4, p5, p6});
-
 
 
         System.out.println("\n--- Équipe de " + joueur1.getNom() + " ---");
@@ -75,31 +70,6 @@ public class Main {
 
         System.out.println("\n--- Équipe de " + joueur2.getNom() + " ---");
         joueur2.afficherEquipe();
-
-
-
-
-//        System.out.println("\n" + joueur1.getNom() + ", choisissez un personnage vivant :");
-//        Personnage choisi1 = joueur1.choisirPersonnageVivant();
-//        if (choisi1 != null) {
-//            System.out.println("Personnage choisi :");
-//            choisi1.afficherEtat();
-//        }
-//
-//        System.out.println("\n" + joueur2.getNom() + ", choisissez un personnage vivant :");
-//        Personnage choisi2 = joueur2.choisirPersonnageVivant();
-//        if (choisi2 != null) {
-//            System.out.println("Personnage choisi :");
-//            choisi2.afficherEtat();
-//        }
-//
-//
-//        System.out.println("\n" + joueur1.getNom() + " a encore des personnages vivants ? "
-//                + joueur1.aEncoreDesPersonnagesVivants());
-//
-//        System.out.println(joueur2.getNom() + " a encore des personnages vivants ? "
-//                + joueur2.aEncoreDesPersonnagesVivants());
-
 
         int numeroTour=1;
         //Boucle de combat
@@ -120,14 +90,14 @@ public class Main {
                 continue;
             }else
             {
-                System.out.println(joueur1.getNom()+ " choisit son attaquant :" + attaquant.getNom());
+                System.out.println(joueur1.getNom()+ " choisit son attaquant : " + attaquant.getNom());
             }
 
 
 
-            //Joueur 1 choisit la cible
-            System.out.print("Choisissez une cible chez " + joueur2.getNom() + " (1-3) : ");
-            joueur2.afficherEquipe();
+            //models.Joueur 1 choisit la cible
+            System.out.print("Choisissez une cible chez " + joueur2.getNom() + " (1-3) : " + "\n");
+            joueur2.affichageDesPersonnages();
             int numCible = input.nextInt();
             Personnage cible = joueur2.obtenirPersonnage(numCible);
 
@@ -189,12 +159,10 @@ public class Main {
                 break;
             }
 
-    numeroTour++;
+             numeroTour++;
 
-//
+
         }
-
-
 
         
     }

@@ -18,7 +18,7 @@ Ce projet permet de pratiquer :
 
 ## 🧱 Modélisation des classes
 
-### 1. Classe Personnage
+### 1. Classe models.Personnage
 Chaque personnage possède :
 
 **Attributs :**
@@ -30,17 +30,17 @@ Chaque personnage possède :
 - Initialise le nom, la vie et la force d'attaque
 
 **Méthodes :**
-- `attaquer(Personnage cible)` : diminue la vie de la cible
+- `attaquer(models.Personnage cible)` : diminue la vie de la cible
 - `estVivant()` : retourne true si vie > 0
 - `afficherEtat()` : affiche le nom et la vie restante
 
 ---
 
-### 2. Classe Joueur
+### 2. Classe models.Joueur
 
 **Attributs :**
 - `String nom`
-- `Personnage[] equipe` (tableau de 3 personnages)
+- `models.Personnage[] equipe` (tableau de 3 personnages)
 
 **Méthodes :**
 - `choisirPersonnageVivant()` : retourne un personnage vivant
@@ -96,8 +96,8 @@ Tant que les deux joueurs ont au moins un personnage vivant :
 ```
 Bienvenue dans le Jeu de Combat !
 
-Joueur 1, entre ton nom : Alice
-Joueur 2, entre ton nom : Bob
+models.Joueur 1, entre ton nom : Alice
+models.Joueur 2, entre ton nom : Bob
 
 Alice, crée ton équipe :
 Nom du personnage 1 : Guerrier
@@ -124,7 +124,7 @@ Goblin - 100 HP
 
 ## 🧭 Étapes guidées pour les étudiants
 
-### Étape 1 : Créer la classe Personnage
+### Étape 1 : Créer la classe models.Personnage
 - Définir les attributs
 - Créer le constructeur
 - Implémenter attaquer()
@@ -132,7 +132,7 @@ Goblin - 100 HP
 
 ---
 
-### Étape 2 : Créer la classe Joueur
+### Étape 2 : Créer la classe models.Joueur
 - Créer le tableau de 3 personnages
 - Ajouter une méthode pour afficher l'équipe
 - Ajouter une méthode pour vérifier s’il reste un personnage vivant
