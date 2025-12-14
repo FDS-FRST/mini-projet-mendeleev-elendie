@@ -101,11 +101,11 @@ public class Main {
 //                + joueur2.aEncoreDesPersonnagesVivants());
 
 
-
+        int numeroTour=1;
         //Boucle de combat
         while (joueur1.aEncoreDesPersonnagesVivants()  && joueur2.aEncoreDesPersonnagesVivants())
         {
-            System.out.println("\n" +  "--- Tour 1---");
+            System.out.println("\n--- Tour " + numeroTour + " ---");
             joueur1.affichageDesPersonnages();
 
             //Le choix de l`attaquant
@@ -117,6 +117,7 @@ public class Main {
             if(!attaquant.estVivant())
             {
                 System.out.println("Votre attaquant(e) n`est plus en vie");
+                continue;
             }else
             {
                 System.out.println(joueur1.getNom()+ " choisit son attaquant :" + attaquant.getNom());
@@ -132,13 +133,13 @@ public class Main {
 
             if(!cible.estVivant()){
                 System.out.println(cible.getNom() + " est deja mort(e)");
-
+            continue;
             }
 
             // Attaque
             System.out.println(attaquant.getNom() + " attaque " + cible.getNom());
             attaquant.attaquer(cible);
-            System.out.println(cible.getNom() + " perd " + cible.getAttaque() + " points de vie ");
+            System.out.println(cible.getNom() + " perd " + attaquant.getAttaque() + " points de vie ");
 
             //Affichage de l`etat
             System.out.println("\nÉtat de l'équipe de " + joueur2.getNom() + " :");
@@ -154,11 +155,41 @@ public class Main {
                         +" sont elimines." );
                 break;
             }
+                        //Tour du jouer 2
+            System.out.println("\n"+joueur2.getNom()+ "  joue !  ");
+            joueur2.afficherEquipe();
+            System.out.println("Choisissez votre attaquant entre les numeros 1 a 3");
+            int numeroAttaquant2 = input.nextInt();
+            Personnage attaquant2= joueur2.obtenirPersonnage(numeroAttaquant2);
+            if(!attaquant2.estVivant()){
+            System.out.println(attaquant2.getNom() + " est deja mort(e)");
+            continue;
+              }
+            else{
+              System.out.println("Choississez une cible chez " + joueur1.getNom() + " (1-3) : ");
+                joueur1.afficherEquipe();
+                int numCible2 = input.nextInt();
+                Personnage cible2 = joueur1.obtenirPersonnage(numCible2);
+                if(!cible2.estVivant()){
+                    System.out.println(cible2.getNom() + " est deja mort(e)");
+                    continue;
+                }
+                else{
+                    System.out.println(attaquant2.getNom() + " attaque " + cible2.getNom());
+                    attaquant2.attaquer(cible2);
+                    System.out.println(cible2.getNom() + " perd " + attaquant2.getAttaque() + " points de vie ");
+                }
 
+            }
 
+        // Vérifier si joueur 1 a perdu
+            if (!joueur1.aEncoreDesPersonnagesVivants()) {
+                System.out.println("\nVictoire de " + joueur2.getNom() + " !");
+                System.out.println("Tous les personnages de " + joueur1.getNom() + " sont éliminés.");
+                break;
+            }
 
-
-
+    numeroTour++;
 
 //
         }
